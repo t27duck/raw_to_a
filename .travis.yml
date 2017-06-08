@@ -1,8 +1,16 @@
 sudo: false
 language: ruby
 rvm:
+  - 2.2.7
+  - 2.3.4
   - 2.4.1
-before_install:
-  - gem install bundler -v 1.14.6
+env:
+  - AR=5-1 DB=pg
+  - AR=5-1 DB=mysql
+  - AR=5-0 DB=pg
+  - AR=5-0 DB=mysql
+  - AR=4-2 DB=pg
+  - AR=4-2 DB=mysql
+before_script:
   - psql -c 'create database raw_to_a_test;' -U postgres
-
+  - mysql -e 'create database raw_to_a_test collate utf8_general_ci;'

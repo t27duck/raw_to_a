@@ -1,11 +1,23 @@
 require "bundler/setup"
 require "raw_to_a"
 
-ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
-  database: 'raw_to_a_test',
-  min_messages: 'warning'
-)
+db =  ENV['DB'] || 'pg'
+ar =  ENV['AR'] || '4-2'
+
+case db
+when 'mysql'
+  ActiveRecord::Base.establish_connection(
+    adapter:  'mysql2',
+    database: 'raw_to_a_test',
+    encoding: 'utf8'
+  )
+else
+  ActiveRecord::Base.establish_connection(
+    adapter: 'postgresql',
+    database: 'raw_to_a_test',
+    min_messages: 'warning'
+  )
+end
 
 ActiveRecord::Schema.define do
   self.verbose = false
@@ -25,6 +37,8 @@ end
     active: i % 2 == 1
   )
 end
+
+puts "TESTING WITH: ActiveRecord: #{ar} | Database: #{db}"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
