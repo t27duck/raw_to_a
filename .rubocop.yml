@@ -1,0 +1,11 @@
+Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Lint/LiteralInCondition:
+  Enabled: false
+
+Bundler/DuplicatedGem:
+  Enabled: false

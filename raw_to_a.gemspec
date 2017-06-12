@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.version       = RawToA::VERSION
 
   spec.summary       = 'Get raw data out of your database as an array of hashes'
-  spec.description   = 'Adds raw_to_a to ActiveRecord to execute a query directoy on the database and return an array of simple hashes'
+  spec.description   = 'Adds raw_to_a to ActiveRecord to execute a query and return an array of simple hashes'
   spec.homepage      = 'https://github.com/t27duck/raw_to_a'
   spec.license       = 'MIT'
 
