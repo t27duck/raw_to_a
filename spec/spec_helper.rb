@@ -1,7 +1,7 @@
 require "bundler/setup"
 require "raw_to_a"
 
-db =  ENV['DB'] || 'pg'
+db =  ENV['DB'] || 'sqlite'
 ar =  ENV['AR'] || '4-2'
 
 case db
@@ -11,11 +11,16 @@ when 'mysql'
     database: 'raw_to_a_test',
     encoding: 'utf8'
   )
-else
+when 'pg'
   ActiveRecord::Base.establish_connection(
     adapter: 'postgresql',
     database: 'raw_to_a_test',
     min_messages: 'warning'
+  )
+else
+  ActiveRecord::Base.establish_connection(
+    adapter: 'sqlite3',
+    database: ':memory:'
   )
 end
 

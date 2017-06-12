@@ -9,7 +9,8 @@ when '5-1' then gem('activerecord', '~> 5.1.0')
 else gem('activerecord', '~> 4.2.0')
 end
 
-case ENV['DB'] || 'pg'
+case ENV['DB'] || 'sqlite'
 when 'mysql' then gem('mysql2')
-else gem('pg')
+when 'pg' then gem('pg')
+else gem('sqlite3')
 end
