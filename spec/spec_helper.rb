@@ -1,5 +1,5 @@
-require "bundler/setup"
-require "raw_to_a"
+require 'bundler/setup'
+require 'raw_to_a'
 
 db =  ENV['DB'] || 'sqlite'
 ar =  ENV['AR'] || '4-2'
@@ -39,7 +39,7 @@ end
 10.times.each_with_index do |i|
   User.create!(
     username: "user#{i}",
-    active: i % 2 == 1
+    active: i.odd?
   )
 end
 
@@ -47,7 +47,7 @@ puts "TESTING WITH: ActiveRecord: #{ar} | Database: #{db}"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = ".rspec_status"
+  config.example_status_persistence_file_path = '.rspec_status'
 
   config.expect_with :rspec do |c|
     c.syntax = :expect

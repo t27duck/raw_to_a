@@ -4,7 +4,7 @@ require 'active_record'
 module RawToA
   module ActiveRecord
     def raw_to_a
-      connection.exec_query(self.all.to_sql).to_a
+      connection.exec_query(all.to_sql).to_a
     end
   end
 end
