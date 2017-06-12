@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/t27duck/raw_to_a.svg?branch=master)](https://travis-ci.org/t27duck/raw_to_a)
+
 # RawToA
 
 `raw_to_a` implements a method on `ActiveRecord` to return an array of hashes directly from a query instead of `ActiveRecord` objects.
